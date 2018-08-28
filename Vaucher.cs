@@ -3864,7 +3864,6 @@ namespace Vaucher
                 {
                     crearT(dia, mes, año, localT);                                                                          //llama metodo crearT para crear archivo XX
                     MessageBox.Show("Archivo XX" + fNom + "." + localT + " ha sido creado exitosamente");
-                    //VO();
 
                     if (MessageBox.Show("¿Desea abrir el archivo?", "Abrir", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == (System.Windows.Forms.DialogResult.Yes))
                     {
@@ -4482,15 +4481,7 @@ namespace Vaucher
             Acerca a = new Acerca();
             a.ShowDialog();
         }
-        
-        //private void btnImprimir_Click(object sender, EventArgs e)                               
-        //{
-            //Report r = new Report();
-            //r.ShowDialog();
-        //}
-
-        //............Codigo SAP-Hana..........................................................................................................................
-
+       
         public bool boleta(DataTable bL)                                                         
         { //borrador boleta 
             bool ok = true;
@@ -4624,9 +4615,9 @@ namespace Vaucher
                                     }
 
                                 if (debePro == 0 && haberPro > 0)
-                                { boleta.Lines.LineTotal = haberPro; }           //precio/total boleta haber                                
+                                { boleta.Lines.LineTotal = haberPro; }           //precio/total boleta haber/credito                                
                                 else if (debePro > 0 && haberPro == 0)
-                                        { boleta.Lines.LineTotal = debePro; }    //precio/total boleta debe   
+                                        { boleta.Lines.LineTotal = debePro; }    //precio/total boleta debe/debito   
 
                                 errSAPNum = boleta.Add();
 
@@ -4654,9 +4645,9 @@ namespace Vaucher
                                         }
 
                                     if (debePro == 0 && haberPro > 0)
-                                    { boleta.Lines.LineTotal = haberPro; }                //precio/total boleta haber   
+                                    { boleta.Lines.LineTotal = haberPro; }                  
                                     else if (debePro > 0 && haberPro == 0)
-                                            { boleta.Lines.LineTotal = debePro; }         //precio/total boleta debe       
+                                            { boleta.Lines.LineTotal = debePro; }              
 
                                     boleta.Lines.Add();
                                 }
